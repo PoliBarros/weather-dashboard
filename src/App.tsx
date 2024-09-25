@@ -8,9 +8,9 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <main className="m-8">
       <WeatherCard city="Toronto" />
-    </>
+    </main>
   );
 }
 

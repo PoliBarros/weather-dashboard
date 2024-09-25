@@ -14,7 +14,7 @@ export const getWeatherByCity = async (city: string) => {
   const response = await weatherApi.get<WeatherData>('/weather', {
     params: {
       q: city,
-      units: 'metric', 
+      units: 'metric',
     },
   });
   return response.data;
@@ -24,7 +24,7 @@ export const getForecastByCity = async (city: string) => {
   const response = await weatherApi.get<ForecastResponse>('/forecast', {
     params: {
       q: city,
-      units: 'metric', 
+      units: 'metric',
     },
   });
   return response.data;
