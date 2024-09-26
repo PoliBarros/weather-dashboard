@@ -1,23 +1,19 @@
 import React from 'react';
-import { useWeatherData } from '../hooks/useWeatherData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDroplet, faEye, faWind } from '@fortawesome/free-solid-svg-icons';
+import { WeatherData } from '../types/weatherTypes';
 
-type WeatherCardProps = {
-  city: string;
+type weatherDataProps = {
+  weatherData: WeatherData;
 };
 
-const WeatherCard: React.FC<WeatherCardProps> = ({ city }) => {
-  const { weatherData, forecastData, loading, error } = useWeatherData(city);
+const WeatherCard: React.FC<weatherDataProps> = ({ weatherData }) => {
   const iconURL = 'http://openweathermap.org/img/wn';
   const today = new Date();
   const optionsWeekday: Intl.DateTimeFormatOptions = { weekday: 'long' };
   const optionsDate: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric' };
 
   const formattedDate = `${today.toLocaleDateString('en-US', optionsWeekday)} - ${today.toLocaleDateString('en-US', optionsDate)}`;
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
 
   const classifyVisibility = (visibility: number) => {
     if (visibility >= 10000) return 'Unlimited';
@@ -33,14 +29,14 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ city }) => {
           <h2 className="text-3xl  text-sky-600">{weatherData.name} </h2>
           <p className="text-sm font-bold">{formattedDate} </p>
           <div className="flex flex-col items-center justify-center mt-1 mb-1 ">
-            <p className="capitalize relative top-[55px] font-extrabold text-md">
+            <p className="capitalize relative top-[50px] font-extrabold text-md">
               {weatherData.weather[0].main}
             </p>
             <img
               src={`${iconURL}/${weatherData.weather[0].icon}@4x.png`}
               alt={weatherData.weather[0].description}
             />
-            <p className="relative top-[-55px] text-5xl ">{Math.round(weatherData.main.temp)}°C</p>
+            <p className="relative top-[-50px] text-5xl ">{Math.round(weatherData.main.temp)}°C</p>
             <p className="relative top-[-45px] text-sm">
               Feels-like: {Math.round(weatherData.main.feels_like)}°C
             </p>
