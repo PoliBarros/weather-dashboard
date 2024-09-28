@@ -25,10 +25,10 @@ const WeatherCard: React.FC<weatherDataProps> = ({ weatherData }) => {
   return (
     <div className="weather-card">
       {weatherData && (
-        <div className="max-w-[300px] font-bold antialiased text-slate-50 rounded-md bg-gradient-to-b from-sky-100 to-sky-600 shadow-xl  p-4">
+        <div className="min-w-[300px] lg:max-w-[350px] font-bold antialiased text-slate-50 rounded-md bg-gradient-to-b from-sky-100 to-sky-600 shadow-xl  p-4">
           <h2 className="text-3xl  text-sky-600">{weatherData.name} </h2>
           <p className="text-sm font-bold">{formattedDate} </p>
-          <div className="flex flex-col items-center justify-center mt-1 mb-1 ">
+          <div className="flex flex-col items-center justify-center  ">
             <p className="capitalize relative top-[50px] font-extrabold text-md">
               {weatherData.weather[0].main}
             </p>
@@ -60,18 +60,6 @@ const WeatherCard: React.FC<weatherDataProps> = ({ weatherData }) => {
           </div>
         </div>
       )}
-      {/* {forecastData && (
-        <div>
-          <h3>Forecast</h3>
-          {forecastData.list.map((item) => (
-            <div key={item.dt}>
-              <p>{new Date(item.dt * 1000).toLocaleDateString()}</p>
-              <p>{item.main.temp}°C</p>
-              <p>{item.weather[0].description}</p>
-            </div>
-          ))}
-        </div>
-      )} */}
     </div>
   );
 };

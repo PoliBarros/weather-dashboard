@@ -17,6 +17,7 @@ export const useWeatherData = (city: string) => {
         const forecast = await getForecastByCity(city);
         setWeatherData(weather);
         setForecastData(forecast);
+        setError(``);
       } catch (err) {
         setError(`Failed to fetch data:${err}`);
       } finally {

@@ -18,6 +18,7 @@ export type ForecastWind = {
 
 export type ForecastDataPoint = {
   dt: number; // Forecast time (Unix timestamp)
+  dt_txt: string; // Forecast formatted date
   main: ForecastMain; // Main forecasted weather details
   weather: ForecastWeather[]; // Array of weather descriptions
   wind: ForecastWind; // Wind data
