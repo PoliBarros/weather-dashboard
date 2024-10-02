@@ -30,7 +30,7 @@ export const ForecastCard: React.FC<ForecastDataPointProps> = ({ forecastData })
   console.log(dailyForecasts);
 
   return (
-    <div className="w-auto max-w-[420px] antialiased font-bold  bg-white bg-opacity-55 p-4 text-slate-600 shadow-xl rounded-md flex-grow">
+    <div className="w-full max-w-[520px] antialiased font-bold  bg-white bg-opacity-55 p-4 text-slate-600 shadow-xl rounded-md flex-grow">
       <h3 className="border-b border-b-sky-100 pb-1">Next 5 days</h3>
       <div className="flex flex-col mt-2 justify-evenly h-[90%] ">
         {/* skipping todays forecast */}
