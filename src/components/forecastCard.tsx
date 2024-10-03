@@ -1,12 +1,12 @@
 import React from 'react';
 import { ForecastDataPoint, ForecastResponse } from '../types/forecastTypes';
+import { iconURL } from '../constants';
 
 type ForecastDataPointProps = {
   forecastData: ForecastResponse;
 };
 
 export const ForecastCard: React.FC<ForecastDataPointProps> = ({ forecastData }) => {
-  const iconURL = 'http://openweathermap.org/img/wn';
   const formattedData = (dt: string) => {
     return dt.split(' ')[0];
   };
@@ -26,8 +26,6 @@ export const ForecastCard: React.FC<ForecastDataPointProps> = ({ forecastData })
     },
     {} as { [key: string]: ForecastDataPoint[] },
   );
-
-  console.log(dailyForecasts);
 
   return (
     <div className="w-full max-w-[520px] antialiased font-bold  bg-white bg-opacity-55 p-4 text-slate-600 shadow-xl rounded-md flex-grow">

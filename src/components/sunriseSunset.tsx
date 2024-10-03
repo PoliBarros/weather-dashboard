@@ -1,7 +1,8 @@
 import React from 'react';
 import { WeatherSys } from '../types/weatherTypes';
 import useUnixTimestamp from '../hooks/useUnixTimestamp';
-import HalfArcSvg from './halfArcSVG';
+import HalfArcSvg from './halfArcSvg';
+import { iconURL } from '../constants';
 
 type WeatherSysProps = {
   weatherSys: WeatherSys;
@@ -10,7 +11,6 @@ type WeatherSysProps = {
 export const SunriseSunset: React.FC<WeatherSysProps> = ({ weatherSys }) => {
   const { time: sunriseTime } = useUnixTimestamp(weatherSys.sunrise);
   const { time: sunsetTime } = useUnixTimestamp(weatherSys.sunset);
-  const iconURL = 'http://openweathermap.org/img/wn';
 
   const now = new Date();
   const hours = now.getHours();
@@ -18,7 +18,6 @@ export const SunriseSunset: React.FC<WeatherSysProps> = ({ weatherSys }) => {
   return (
     <div className="p-5 bg-white bg-opacity-55 flex flex-col items-center justify-center text-slate-600 rounded-md  ">
       <div className="arc-container w-full w-min-[300px] h-[150px] relative flex flex-col items-center">
-        {/* <div className="w-full h-full border-2 border-transparent rounded-tl-[200px] rounded-tr-[200px] border-t-white "></div> */}
         <HalfArcSvg className="text-white"></HalfArcSvg>
         <div className="w-full relative  border-t border-t-white z-2 flex flex-col ">
           <div className="flex justify-between">

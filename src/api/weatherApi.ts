@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { WeatherData } from '../types/weatherTypes';
 import { ForecastResponse } from '../types/forecastTypes';
-
-const baseURL = 'https://api.openweathermap.org/data/2.5';
+import { baseURL } from '../constants';
 
 const weatherApi = axios.create({
   baseURL,
